@@ -41,6 +41,9 @@ int main(){
     __uint64_t diff = (__uint64_t) start_of_block;
     printf ("diff: %lu \n", diff);
 
+    intptr_t x = 1;
+    void* ptr2 = sbrk(x << 32);
+    printf ("large test: %p \n", ptr2);
 
     
     return 0;
