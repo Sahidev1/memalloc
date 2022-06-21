@@ -16,6 +16,7 @@ typedef struct header{
 void* get_end_of_block ();
 void init_mem ();
 void* memalloc (int bytes);
+void free (void* ptr);
 void set_error_flag(void* sbrk_ret_value);
 void init_blocks ();
 
@@ -26,6 +27,6 @@ int get_alloc_state (int info);
 
 // TEST FUNCTIONS
 Header* get_start_header ();
-void head_traverser ();
+void head_traverser (int blocks_to_traverse);
 
 #endif
