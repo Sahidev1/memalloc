@@ -18,13 +18,13 @@ mem_block* alloc_new_block (size_t block_size) {
 }
 
 void* usable_alloc_addr (mem_block* addr){
-    int *ptr = (int*) addr;
-    return (void*) (ptr + (ALLOC_OVERHEAD/sizeof(int)));
+    char *ptr = (char *) addr;
+    return (void*) (ptr + (ALLOC_OVERHEAD/sizeof(char)));
 }
 
 mem_block* usable_to_base_addr (void* usable_addr){
-    int *ptr = (int*) usable_addr;
-    return (mem_block*) (ptr - (ALLOC_OVERHEAD/sizeof(int)));
+    char *ptr = (char*) usable_addr;
+    return (mem_block*) (ptr - (ALLOC_OVERHEAD/sizeof(char)));
 }
 
 void* memalloc (size_t block_size){ 
