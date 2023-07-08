@@ -12,9 +12,7 @@ typedef struct Mem_block {
     struct Mem_block* next_block;
 } mem_block;
 
-mem_block* alloc_new_block (size_t block_size);
 void* memalloc (size_t block_size);
 int memfree (void* usable_memaddr);
-mem_block* get_mem_list();
 
 #endif
