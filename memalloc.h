@@ -15,4 +15,8 @@ typedef struct Mem_block {
 void* memalloc (size_t block_size);
 int memfree (void* usable_memaddr);
 
+// below are for testing purposes
+mem_block* alloc_new_block (size_t block_size);
+mem_block* get_mem_list();
+
 #endif
