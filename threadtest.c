@@ -51,6 +51,6 @@ int main() {
         }
     }
 
-    printf("Test passed succesfully\n")
+    printf("Test passed succesfully\n");
     return 0;
 }
