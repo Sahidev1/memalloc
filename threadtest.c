@@ -11,7 +11,7 @@
 void* thread_func(void* arg) {
     srand(time(NULL));
     int i;
-    int allocs = 1 + rand()%MAX_ALLOCS;
+    int allocs = MAX_ALLOCS;
     void* blocks[allocs];
 
     // allocate memory blocks
@@ -37,7 +37,7 @@ int main() {
 
     // create threads
     for (i = 0; i < NUM_THREADS; i++) {
-        if (pthread_create(&threads[i], NULL, thread_func, NULL) != 0) {
+        if (pthread_create(&threads[i], NULL, &thread_func, NULL) != 0) {
             printf("pthread_create failed\n");
             return 1;
         }

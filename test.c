@@ -7,6 +7,7 @@ void mem_iterator (){
     while(b != NULL){
         printf("addr: %p\n", b);
         printf("isfree: %d\n", b->is_free);
+        printf("size %ld\n",b->size);
         printf("next addr: %p\n", b->next_block);
         b = b->next_block;
     }
@@ -56,6 +57,26 @@ int main(void){
     }
 
     printf("after freeing:\n\n");
+    mem_iterator();
+
+    //test
+    int* arr2 = memalloc(51*sizeof(int));
+    for(int i = 0; i < 51; i++){
+        arr2[i] = rand();
+        printf("malloc val: %d\n", arr2[i]);
+        printf("malloc adr: %p\n", (arr2 + i));
+    };
+
+    memfree(arr2);
+
+    //test mecalloc 
+    int* arr0 = mecalloc(50, sizeof(int));
+    for(int i = 0; i < 50; i++){
+        printf("mecalloc val: %d\n", arr0[i]);
+        printf("mecalloc adr: %p\n", (arr0 + i));
+    };
+    mem_iterator();
+    memfree(arr0);
     mem_iterator();
 
     return 0;

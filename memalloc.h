@@ -6,6 +6,10 @@
 #define TRUE 1
 #define FALSE 0
 
+//FLAGS
+
+typedef enum {MEMALLOC, CALLOC, REALLOC} alloc_type;
+
 typedef struct Mem_block {
     int is_free;
     size_t size;
@@ -13,6 +17,7 @@ typedef struct Mem_block {
 } mem_block;
 
 void* memalloc (size_t block_size);
+void* mecalloc (size_t n_elems, size_t elem_size);
 int memfree (void* usable_memaddr);
 
 // below are for testing purposes
